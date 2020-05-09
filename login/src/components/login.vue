@@ -9,9 +9,8 @@
 
             <label for="password">Password</label><br>
             <input v-model="password" type="password" id="password" name="password" required><br>
-
-            <button>Sign up</button>
             <input type="submit" value="LOG IN">
+            <button v-on:click="notify">Sign up</button>
         </fieldset> 
     </form>  
   </div>
@@ -31,6 +30,9 @@
                 alert('login successful'+ this.email)
                 this.email=null
                 this.password=null
+            },
+            notify:function(){
+                this.$emit('toggle');
             }
         }
     }
