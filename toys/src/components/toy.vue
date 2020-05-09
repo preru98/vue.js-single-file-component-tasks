@@ -1,7 +1,7 @@
 <template>
     <div>
-        <h3>{{this.name}}</h3>
-        <img v-bind:src="this.img"/>
+        <h3>{{title}}</h3>
+        <img v-bind:src="image"/>
     </div>
 </template>
 
@@ -11,18 +11,26 @@ export default {
     props:['img','name'],
     data:function(){
         return {
-            // image:this.img,
+            // image:this.img, //Won't work since data is constant
             // title:this.name
         }
     },
-    // methods:{
+    // methods:{               //Definitely work : call the function in template : image() and title()
     //     image:function(){
     //         return this.img
     //     },
     //     title:function(){
     //         return this.name
     //     }
-    // }
+    // },
+    computed:{                  //Definitely work : reference the property aas image and title
+        image:function(){
+            return this.img
+        },
+        title:function(){
+            return this.name
+        }
+    }
 }
 </script>
 
