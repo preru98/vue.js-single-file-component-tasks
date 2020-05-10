@@ -3,12 +3,14 @@
   <!-- {{this.products}} -->
   <button v-for="(product,index) in products" v-on:click="showProduct(index)" :key="product.id">{{product.title}}</button>
   <toy-pi v-if="products.length" v-bind:img="products[selectedProduct].src" :name="products[selectedProduct].title"></toy-pi>
+  <login></login>
  </div>
 </template>
 
 <script>
 import * as axios from 'axios'
 import pi from './components/toy.vue'
+import login from './components/login.vue'
 export default {
     data:function(){
     return{
@@ -17,7 +19,8 @@ export default {
     }
   }, 
   components:{
-    'toy-pi':pi
+    'toy-pi':pi,
+    'login':login
   },
   methods:{
     showProduct:function(index){
